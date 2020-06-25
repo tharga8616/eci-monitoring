@@ -1,0 +1,45 @@
+version: "2"
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - grafana-net
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+  graphite:
+    image: graphiteapp/graphite-statsd:v1.0.1
+    container_name: graphite
+    restart: always
+    networks:
+      - grafana-net
+    volumes:
+      - graphite-conf:/opt/graphite/conf
+      - graphite-storage:/opt/graphite/storage
+      - graphite-custom-functions:/opt/graphite/webapp/graphite/functions/custom
+      - graphite-nginx:/etc/nginx
+      - graphite-statsd:/opt/statsd/config
+      - graphite-logrotate:/etc/logrotate.d
+      - graphite-logs:/var/log
+      - graphite-redis:/var/lib/redis
+    environment:
+      - ECI_URL=https://eci.ec.europa.eu/012/public
+      - ECI_NAME=finning
+
+networks:
+  grafana-net:
+
+volumes:
+  grafana-storage:
+  graphite-conf:
+  graphite-storage:
+  graphite-custom-functions:
+  graphite-nginx:
+  graphite-statsd:
+  graphite-logrotate:
+  graphite-logs:
+  graphite-redis:
