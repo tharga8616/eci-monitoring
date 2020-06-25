@@ -16,17 +16,8 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1593043587793,
-  "links": [
-    {
-      "icon": "external link",
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [],
-      "targetBlank": true,
-      "type": "dashboards"
-    }
-  ],
+  "iteration": 1593046766633,
+  "links": [],
   "panels": [
     {
       "datasource": null,
@@ -34,15 +25,38 @@
         "defaults": {
           "custom": {},
           "mappings": [],
+          "max": 1000000,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "dark-purple",
                 "value": null
+              },
+              {
+                "color": "semi-dark-blue",
+                "value": 50000
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 150000
+              },
+              {
+                "color": "yellow",
+                "value": 350000
+              },
+              {
+                "color": "dark-orange",
+                "value": 650000
+              },
+              {
+                "color": "red",
+                "value": 800000
               }
             ]
-          }
+          },
+          "unit": "none"
         },
         "overrides": []
       },
@@ -54,9 +68,6 @@
       },
       "id": 4,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -64,7 +75,9 @@
           ],
           "fields": "/^sumSeries\\(local\\.finning.\\*\\)$/",
           "values": false
-        }
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
       "pluginVersion": "7.0.3",
       "targets": [
@@ -76,7 +89,7 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Total",
-      "type": "stat"
+      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -187,6 +200,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Graphite",
+      "decimals": 0,
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -283,7 +297,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "1m",
   "schemaVersion": 25,
   "style": "dark",
   "tags": [],
@@ -346,10 +360,11 @@
     ]
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "now-3h",
+    "to": "now-1m"
   },
   "timepicker": {
+    "nowDelay": "1m",
     "refresh_intervals": [
       "10s",
       "30s",
@@ -362,8 +377,8 @@
       "1d"
     ]
   },
-  "timezone": "Europe/London",
+  "timezone": "",
   "title": "ECI Signatures",
   "uid": "Zua6l34Zgz",
-  "version": 15
+  "version": 24
 }
