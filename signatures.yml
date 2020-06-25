@@ -16,14 +16,16 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1593046766633,
+  "iteration": 1593120939070,
   "links": [],
   "panels": [
     {
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "custom": {
+            "align": null
+          },
           "mappings": [],
           "max": 1000000,
           "min": 0,
@@ -73,7 +75,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^sumSeries\\(local\\.finning.\\*\\)$/",
+          "fields": "",
           "values": false
         },
         "showThresholdLabels": false,
@@ -83,7 +85,7 @@
       "targets": [
         {
           "refId": "A",
-          "target": "sumSeries(local.finning.*)"
+          "target": "sumSeries(eci.finning.*, *)"
         }
       ],
       "timeFrom": null,
@@ -99,7 +101,21 @@
       "datasource": "Graphite",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
         "overrides": []
       },
@@ -135,6 +151,7 @@
         "dataLinks": []
       },
       "percentage": false,
+      "pluginVersion": "7.0.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -148,7 +165,7 @@
         {
           "refCount": 0,
           "refId": "A",
-          "target": "aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(local.finning.$Country, 'local.finning.at', 'Austria'), 'local.finning.be', 'Belgium'), 'local.finning.bg', 'Bulgaria'), 'local.finning.cy', 'Cyprus'), 'local.finning.cz', 'Czech Republic'), 'local.finning.de', 'Germany'), 'local.finning.dk', 'Denmark'), 'local.finning.ee', 'Estonia'), 'local.finning.es', 'Spain'), 'local.finning.fi', 'Finland'), 'local.finning.fr', 'France'), 'local.finning.gr', 'United Kingdom'), 'local.finning.hr', 'Croatia'), 'local.finning.hu', 'Hungary'), 'local.finning.ie', 'Ireland'), 'local.finning.it', 'Italy'), 'local.finning.lt', 'Lithuania'), 'local.finning.lu', 'Luxembourg'), 'local.finning.lv', 'Latvia'), 'local.finning.mt', 'Malta'), 'local.finning.nl', 'Netherlands'), 'local.finning.pl', 'Poland'), 'local.finning.pt', 'Portugal'), 'local.finning.ro', 'Romania'), 'local.finning.se', 'Sweden'), 'local.finning.si', 'Slovenia'), 'local.finning.sk', 'Slovakia')",
+          "target": "aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(eci.finning.$Country, 'eci.finning.at', 'Austria'), 'eci.finning.be', 'Belgium'), 'eci.finning.bg', 'Bulgaria'), 'eci.finning.cy', 'Cyprus'), 'eci.finning.cz', 'Czech Republic'), 'eci.finning.de', 'Germany'), 'eci.finning.dk', 'Denmark'), 'eci.finning.ee', 'Estonia'), 'eci.finning.es', 'Spain'), 'eci.finning.fi', 'Finland'), 'eci.finning.fr', 'France'), 'eci.finning.gr', 'United Kingdom'), 'eci.finning.hr', 'Croatia'), 'eci.finning.hu', 'Hungary'), 'eci.finning.ie', 'Ireland'), 'eci.finning.it', 'Italy'), 'eci.finning.lt', 'Lithuania'), 'eci.finning.lu', 'Luxembourg'), 'eci.finning.lv', 'Latvia'), 'eci.finning.mt', 'Malta'), 'eci.finning.nl', 'Netherlands'), 'eci.finning.pl', 'Poland'), 'eci.finning.pt', 'Portugal'), 'eci.finning.ro', 'Romania'), 'eci.finning.se', 'Sweden'), 'eci.finning.si', 'Slovenia'), 'eci.finning.sk', 'Slovakia')",
           "textEditor": false
         }
       ],
@@ -203,7 +220,21 @@
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
         "overrides": []
       },
@@ -239,6 +270,7 @@
         "dataLinks": []
       },
       "percentage": false,
+      "pluginVersion": "7.0.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -251,7 +283,7 @@
       "targets": [
         {
           "refId": "A",
-          "target": "alias(sumSeries(local.finning.*, *), 'Total')"
+          "target": "alias(sumSeries(eci.finning.*, *), 'Total')"
         }
       ],
       "thresholds": [],
@@ -297,7 +329,7 @@
       }
     }
   ],
-  "refresh": "1m",
+  "refresh": "30s",
   "schemaVersion": 25,
   "style": "dark",
   "tags": [],
@@ -339,14 +371,14 @@
           ]
         },
         "datasource": "Graphite",
-        "definition": "local.finning.*",
+        "definition": "eci.finning.*",
         "hide": 0,
         "includeAll": false,
         "label": "Country",
         "multi": true,
         "name": "Country",
         "options": [],
-        "query": "local.finning.*",
+        "query": "eci.finning.*",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -360,7 +392,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-12h",
     "to": "now-1m"
   },
   "timepicker": {
@@ -380,5 +412,5 @@
   "timezone": "",
   "title": "ECI Signatures",
   "uid": "Zua6l34Zgz",
-  "version": 24
+  "version": 28
 }
