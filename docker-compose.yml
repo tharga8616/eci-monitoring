@@ -12,7 +12,7 @@ services:
       - grafana-storage:/var/lib/grafana
 
   graphite:
-    image: graphiteapp/graphite-statsd:v1.0.1
+    image: tharga8616/graphite-eci:v1.0.0
     container_name: graphite
     restart: always
     networks:
