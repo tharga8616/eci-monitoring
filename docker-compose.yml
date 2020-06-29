@@ -12,7 +12,7 @@ services:
       - grafana-storage:/var/lib/grafana
 
   graphite:
-    image: tharga8616/graphite-eci:v1.0.0
+    image: tharga8616/graphite-eci:v1.0.0 # armf build image based on graphiteapp/graphite-statsd 
     container_name: graphite
     restart: always
     networks:
