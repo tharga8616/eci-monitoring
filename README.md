@@ -5,7 +5,7 @@ Configure the environment variables in the docker-compose.yaml:
 
 | Variable | Example | Description |
 | --- | --- | --- |
-| ECI_URL |https://eci.ec.europa.eu/012/public | This is the url from the European Comission signing site |
+| ECI_URL |https://eci.ec.europa.eu/012/public | URL of the signatures site |
 |ECI_NAME |finning  | Arbitrary name for identifying whisper metrics | 
 
 
