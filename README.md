@@ -17,7 +17,9 @@ Add the graphite datasource
 
 ![Screenshot 2020-08-19 at 04 37 11](https://user-images.githubusercontent.com/9881318/90585717-c48bc780-e1d5-11ea-8e5f-133ee54392d7.png)
 
-Manually import the dashboard at grafana/signatures.yml.
+
+Manually import the dashboard at [grafana/signatures.yml](https://github.com/tharga8616/eci-monitoring/blob/master/grafana/signatures.yml) and substitute all "finning" words by your $ECI_NAME
+
 
 ## Enjoy!
 
