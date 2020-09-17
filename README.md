@@ -20,6 +20,52 @@ Add the graphite datasource
 
 Manually import the dashboard at [grafana/signatures.yml](https://github.com/tharga8616/eci-monitoring/blob/master/grafana/signatures.yml) and substitute all "finning" words by your $ECI_NAME
 
+Configure graphite to show metrics older than 12h
+/var/lib/docker/volumes/ecimonitoring_graphite-conf/_data/storage-schemas.conf
+```
+[carbon]
+pattern = ^carbon\.
+retentions = 10s:6h,1m:90d
+
+[eci]
+pattern = ^eci.*
+retentions = 1m:6h,1m:24h,1m:7d,1m:1y
+```
+/var/lib/docker/volumes/ecimonitoring_graphite-conf/_data/storage-aggregation.conf
+```
+[min]
+pattern = \.lower$
+xFilesFactor = 0.1
+aggregationMethod = min
+
+[max]
+pattern = \.upper(_\d+)?$
+xFilesFactor = 0.1
+aggregationMethod = max
+
+[sum]
+pattern = \.sum$
+xFilesFactor = 0
+aggregationMethod = sum
+
+[count]
+pattern = \.count$
+xFilesFactor = 0
+aggregationMethod = sum
+
+[count_legacy]
+pattern = ^stats_counts.*
+xFilesFactor = 0
+aggregationMethod = sum
+
+[default_average]
+pattern = .*
+xFilesFactor = 0.3
+aggregationMethod = average
+```
+
+Configure grafana to allow anonymous users to see graph
+Place this [config file](https://github.com/tharga8616/eci-monitoring/blob/master/grafana/defaults.ini) into /var/lib/docker/volumes/ecimonitoring_grafana-conf/_data/defaults.ini
 
 ## Enjoy!
 
