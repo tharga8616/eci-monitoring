@@ -15,12 +15,12 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1593120939070,
+  "id": 3,
+  "iteration": 1600311908320,
   "links": [],
   "panels": [
     {
-      "datasource": null,
+      "datasource": "Graphite",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -63,8 +63,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 6,
+        "h": 7,
+        "w": 7,
         "x": 9,
         "y": 0
       },
@@ -81,16 +81,25 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.1.5",
+      "repeat": null,
       "targets": [
         {
-          "refId": "A",
-          "target": "sumSeries(eci.finning.*, *)"
+          "refCount": 0,
+          "refId": "B",
+          "target": "sumSeries(eci.finning.*)"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
       "title": "Total",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "transparent": true,
       "type": "gauge"
     },
     {
@@ -102,20 +111,7 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
+          "links": []
         },
         "overrides": []
       },
@@ -125,7 +121,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 6
+        "y": 7
       },
       "hiddenSeries": false,
       "id": 2,
@@ -147,11 +143,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -221,20 +214,7 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
+          "links": []
         },
         "overrides": []
       },
@@ -244,7 +224,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 6
+        "y": 7
       },
       "hiddenSeries": false,
       "id": 5,
@@ -266,11 +246,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -330,7 +307,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 25,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -339,7 +316,35 @@
         "allValue": "",
         "current": {
           "selected": true,
-          "text": "at + be + bg + cy + cz + de + dk + ee + es + fi + fr + gr + hr + hu + ie + it + lt + lu + lv + mt + nl + pl + pt + ro + se + si + sk",
+          "text": [
+            "at",
+            "be",
+            "bg",
+            "cy",
+            "cz",
+            "de",
+            "dk",
+            "ee",
+            "es",
+            "fi",
+            "fr",
+            "gr",
+            "hr",
+            "hu",
+            "ie",
+            "it",
+            "lt",
+            "lu",
+            "lv",
+            "mt",
+            "nl",
+            "pl",
+            "pt",
+            "ro",
+            "se",
+            "si",
+            "sk"
+          ],
           "value": [
             "at",
             "be",
@@ -392,7 +397,7 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-24h",
     "to": "now-1m"
   },
   "timepicker": {
@@ -412,5 +417,5 @@
   "timezone": "",
   "title": "ECI Signatures",
   "uid": "Zua6l34Zgz",
-  "version": 28
+  "version": 3
 }
