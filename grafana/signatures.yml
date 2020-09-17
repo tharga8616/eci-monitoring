@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 3,
-  "iteration": 1600311908320,
+  "iteration": 1600313352951,
   "links": [],
   "panels": [
     {
@@ -214,7 +214,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "links": []
+          "links": [],
+          "unit": "short"
         },
         "overrides": []
       },
@@ -233,6 +234,7 @@
         "avg": false,
         "current": true,
         "hideEmpty": false,
+        "hideZero": false,
         "max": false,
         "min": false,
         "rightSide": true,
@@ -255,7 +257,7 @@
         {}
       ],
       "spaceLength": 10,
-      "stack": true,
+      "stack": false,
       "steppedLine": false,
       "targets": [
         {
@@ -284,7 +286,8 @@
       },
       "yaxes": [
         {
-          "format": "none",
+          "decimals": 0,
+          "format": "short",
           "label": "Number of Signatures",
           "logBase": 1,
           "max": null,
@@ -316,63 +319,20 @@
         "allValue": "",
         "current": {
           "selected": true,
+          "tags": [],
           "text": [
-            "at",
-            "be",
-            "bg",
             "cy",
-            "cz",
-            "de",
             "dk",
-            "ee",
-            "es",
             "fi",
-            "fr",
-            "gr",
-            "hr",
-            "hu",
-            "ie",
-            "it",
-            "lt",
-            "lu",
-            "lv",
-            "mt",
-            "nl",
-            "pl",
-            "pt",
-            "ro",
-            "se",
-            "si",
-            "sk"
+            "es",
+            "ee"
           ],
           "value": [
-            "at",
-            "be",
-            "bg",
             "cy",
-            "cz",
-            "de",
             "dk",
-            "ee",
-            "es",
             "fi",
-            "fr",
-            "gr",
-            "hr",
-            "hu",
-            "ie",
-            "it",
-            "lt",
-            "lu",
-            "lv",
-            "mt",
-            "nl",
-            "pl",
-            "pt",
-            "ro",
-            "se",
-            "si",
-            "sk"
+            "es",
+            "ee"
           ]
         },
         "datasource": "Graphite",
@@ -397,7 +357,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-5m",
     "to": "now-1m"
   },
   "timepicker": {
@@ -417,5 +377,5 @@
   "timezone": "",
   "title": "ECI Signatures",
   "uid": "Zua6l34Zgz",
-  "version": 3
+  "version": 5
 }
