@@ -10,9 +10,10 @@ services:
       - grafana-net
     volumes:
       - grafana-storage:/var/lib/grafana
+      - grafana-conf:/usr/share/grafana/conf/
 
   graphite:
-    image: tharga8616/graphite-eci:v1.0.0 # armf build image based on graphiteapp/graphite-statsd 
+    image: tharga8616/graphite-eci:v1.0.0 # armf build image based on graphiteapp/graphite-statsd
     container_name: graphite
     restart: always
     networks:
@@ -35,6 +36,7 @@ networks:
 
 volumes:
   grafana-storage:
+  grafana-conf:
   graphite-conf:
   graphite-storage:
   graphite-custom-functions:
