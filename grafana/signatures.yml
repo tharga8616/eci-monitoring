@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 3,
-  "iteration": 1600401710209,
+  "iteration": 1600493803641,
   "links": [],
   "panels": [
     {
@@ -183,6 +183,7 @@
       },
       "yaxes": [
         {
+          "decimals": 0,
           "format": "none",
           "label": "Number of Signatures",
           "logBase": 1,
@@ -191,6 +192,7 @@
           "show": true
         },
         {
+          "decimals": 0,
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -309,7 +311,7 @@
       }
     }
   ],
-  "refresh": "30s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -400,8 +402,8 @@
     ]
   },
   "time": {
-    "from": "now-2d",
-    "to": "now-1m"
+    "from": "2020-09-17T03:02:02.186Z",
+    "to": "2020-09-19T05:35:50.949Z"
   },
   "timepicker": {
     "nowDelay": "1m",
@@ -420,5 +422,5 @@
   "timezone": "",
   "title": "ECI Signatures",
   "uid": "Zua6l34Zgz",
-  "version": 6
+  "version": 7
 }
