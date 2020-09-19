@@ -16,10 +16,11 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 3,
-  "iteration": 1600494009713,
+  "iteration": 1600494545944,
   "links": [],
   "panels": [
     {
+      "cacheTimeout": "",
       "datasource": "Graphite",
       "fieldConfig": {
         "defaults": {
@@ -68,6 +69,7 @@
         "x": 9,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 4,
       "options": {
         "orientation": "auto",
@@ -90,7 +92,7 @@
           "target": "sumSeries(eci.finning.*)"
         }
       ],
-      "timeFrom": null,
+      "timeFrom": "10m",
       "timeShift": null,
       "title": "Total",
       "transformations": [
@@ -401,8 +403,8 @@
     ]
   },
   "time": {
-    "from": "2020-09-17T03:02:02.186Z",
-    "to": "2020-09-19T05:35:50.949Z"
+    "from": "now-6h",
+    "to": "now-1m"
   },
   "timepicker": {
     "nowDelay": "1m",
@@ -421,5 +423,5 @@
   "timezone": "",
   "title": "ECI Signatures",
   "uid": "Zua6l34Zgz",
-  "version": 8
+  "version": 11
 }
