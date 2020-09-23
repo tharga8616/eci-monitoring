@@ -89,7 +89,7 @@
         {
           "refCount": 0,
           "refId": "B",
-          "target": "sumSeries(eci.finning.*)"
+          "target": "sumSeries(eci.unconditionalbasicincome.*)"
         }
       ],
       "timeFrom": "10m",
@@ -159,7 +159,7 @@
         {
           "refCount": 0,
           "refId": "A",
-          "target": "aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(eci.finning.$Country, 'eci.finning.at', 'Austria'), 'eci.finning.be', 'Belgium'), 'eci.finning.bg', 'Bulgaria'), 'eci.finning.cy', 'Cyprus'), 'eci.finning.cz', 'Czech Republic'), 'eci.finning.de', 'Germany'), 'eci.finning.dk', 'Denmark'), 'eci.finning.ee', 'Estonia'), 'eci.finning.es', 'Spain'), 'eci.finning.fi', 'Finland'), 'eci.finning.fr', 'France'), 'eci.finning.gr', 'United Kingdom'), 'eci.finning.hr', 'Croatia'), 'eci.finning.hu', 'Hungary'), 'eci.finning.ie', 'Ireland'), 'eci.finning.it', 'Italy'), 'eci.finning.lt', 'Lithuania'), 'eci.finning.lu', 'Luxembourg'), 'eci.finning.lv', 'Latvia'), 'eci.finning.mt', 'Malta'), 'eci.finning.nl', 'Netherlands'), 'eci.finning.pl', 'Poland'), 'eci.finning.pt', 'Portugal'), 'eci.finning.ro', 'Romania'), 'eci.finning.se', 'Sweden'), 'eci.finning.si', 'Slovenia'), 'eci.finning.sk', 'Slovakia')",
+          "target": "aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(eci.unconditionalbasicincome.$Country, 'eci.unconditionalbasicincome.at', 'Austria'), 'eci.unconditionalbasicincome.be', 'Belgium'), 'eci.unconditionalbasicincome.bg', 'Bulgaria'), 'eci.unconditionalbasicincome.cy', 'Cyprus'), 'eci.unconditionalbasicincome.cz', 'Czech Republic'), 'eci.unconditionalbasicincome.de', 'Germany'), 'eci.unconditionalbasicincome.dk', 'Denmark'), 'eci.unconditionalbasicincome.ee', 'Estonia'), 'eci.unconditionalbasicincome.es', 'Spain'), 'eci.unconditionalbasicincome.fi', 'Finland'), 'eci.unconditionalbasicincome.fr', 'France'), 'eci.unconditionalbasicincome.gr', 'United Kingdom'), 'eci.unconditionalbasicincome.hr', 'Croatia'), 'eci.unconditionalbasicincome.hu', 'Hungary'), 'eci.unconditionalbasicincome.ie', 'Ireland'), 'eci.unconditionalbasicincome.it', 'Italy'), 'eci.unconditionalbasicincome.lt', 'Lithuania'), 'eci.unconditionalbasicincome.lu', 'Luxembourg'), 'eci.unconditionalbasicincome.lv', 'Latvia'), 'eci.unconditionalbasicincome.mt', 'Malta'), 'eci.unconditionalbasicincome.nl', 'Netherlands'), 'eci.unconditionalbasicincome.pl', 'Poland'), 'eci.unconditionalbasicincome.pt', 'Portugal'), 'eci.unconditionalbasicincome.ro', 'Romania'), 'eci.unconditionalbasicincome.se', 'Sweden'), 'eci.unconditionalbasicincome.si', 'Slovenia'), 'eci.unconditionalbasicincome.sk', 'Slovakia')",
           "textEditor": false
         }
       ],
@@ -265,7 +265,7 @@
       "targets": [
         {
           "refId": "A",
-          "target": "alias(sumSeries(eci.finning.*, *), 'Total')"
+          "target": "alias(sumSeries(eci.unconditionalbasicincome.*, *), 'Total')"
         }
       ],
       "thresholds": [],
@@ -382,14 +382,14 @@
           ]
         },
         "datasource": "Graphite",
-        "definition": "eci.finning.*",
+        "definition": "eci.unconditionalbasicincome.*",
         "hide": 0,
         "includeAll": false,
         "label": "Country",
         "multi": true,
         "name": "Country",
         "options": [],
-        "query": "eci.finning.*",
+        "query": "eci.unconditionalbasicincome.*",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
