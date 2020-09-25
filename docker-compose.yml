@@ -28,8 +28,8 @@ services:
       - graphite-logs:/var/log
       - graphite-redis:/var/lib/redis
     environment:
-      - ECI_URL=https://eci.ec.europa.eu/012/public
-      - ECI_NAME=finning
+      - ECI_URL=https://eci.ec.europa.eu/014/public
+      - ECI_NAME=unconditionalbasicincome
 
 networks:
   grafana-net:
