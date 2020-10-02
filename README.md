@@ -29,7 +29,7 @@ retentions = 10s:6h,1m:90d
 
 [eci]
 pattern = ^eci.*
-retentions = 1m:6h,1m:24h,1m:7d,1m:1y
+retentions = 5m:3y
 ```
 /var/lib/docker/volumes/ecimonitoring_graphite-conf/_data/storage-aggregation.conf
 ```
