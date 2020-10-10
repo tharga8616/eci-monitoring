@@ -1,9 +1,11 @@
-FROM alpine:3.12.0 as base
+ARG BASEIMAGE=alpine:3.12.0
+FROM $BASEIMAGE as base
 LABEL maintainer="Denys Zhdanov <denis.zhdanov@gmail.com>"
 
 RUN true \
- && apk add --no-cache \
+ && apk add --update --no-cache \
       cairo \
+      cairo-dev \
       collectd \
       collectd-disk \
       collectd-nginx \
@@ -14,17 +16,16 @@ RUN true \
       nginx \
       nodejs \
       npm \
-      py3-pyldap \
       redis \
       runit \
       sqlite \
       expect \
       dcron \
-      py3-mysqlclient \
-      mysql-dev \
+      python3-dev \
       mysql-client \
-      postgresql-dev \
+      mysql-dev \
       postgresql-client \
+      postgresql-dev \
       librdkafka \
       jansson \
  && rm -rf \
@@ -36,32 +37,38 @@ RUN true \
 FROM base as build
 LABEL maintainer="Denys Zhdanov <denis.zhdanov@gmail.com>"
 
+ARG python_binary
+
 RUN true \
  && apk add --update \
       alpine-sdk \
       git \
-      libffi-dev \
       pkgconfig \
-      py3-cairo \
-      py3-pip \
+      wget \
+      go \
+      cairo-dev \
+      libffi-dev \
       openldap-dev \
       python3-dev \
       rrdtool-dev \
-      wget \
-      go==1.13.11-r0 \
       jansson-dev \
       librdkafka-dev \
- && pip3 install virtualenv==16.7.10 \
- && virtualenv /opt/graphite \
+      mysql-dev \
+      postgresql-dev \
+ && curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py \
+ && $python_binary /tmp/get-pip.py && rm /tmp/get-pip.py \
+ && pip install virtualenv==16.7.10 \
+ && virtualenv -p $python_binary /opt/graphite \
  && . /opt/graphite/bin/activate \
- && pip3 install \
+ && pip install \
+      cairocffi==1.1.0 \
       django==2.2.13 \
       django-statsd-mozilla \
       fadvise \
       gunicorn==20.0.4 \
       eventlet>=0.24.1 \
       gevent>=1.4 \
-      msgpack-python \
+      msgpack==0.6.2 \
       redis \
       rrdtool \
       python-ldap \
@@ -77,7 +84,7 @@ ARG whisper_repo=https://github.com/graphite-project/whisper.git
 RUN git clone -b ${whisper_version} --depth 1 ${whisper_repo} /usr/local/src/whisper \
  && cd /usr/local/src/whisper \
  && . /opt/graphite/bin/activate \
- && python3 ./setup.py install
+ && $python_binary ./setup.py install
 
 # install carbon
 ARG carbon_version=${version}
@@ -86,7 +93,7 @@ RUN . /opt/graphite/bin/activate \
  && git clone -b ${carbon_version} --depth 1 ${carbon_repo} /usr/local/src/carbon \
  && cd /usr/local/src/carbon \
  && pip3 install -r requirements.txt \
- && python3 ./setup.py install
+ && $python_binary ./setup.py install
 
 # install graphite
 ARG graphite_version=${version}
@@ -95,7 +102,7 @@ RUN . /opt/graphite/bin/activate \
  && git clone -b ${graphite_version} --depth 1 ${graphite_repo} /usr/local/src/graphite-web \
  && cd /usr/local/src/graphite-web \
  && pip3 install -r requirements.txt \
- && python3 ./setup.py install
+ && $python_binary ./setup.py install
 
 # install statsd
 ARG statsd_version=0.8.6
@@ -106,15 +113,13 @@ RUN git clone "${statsd_repo}" \
  && git checkout tags/v"${statsd_version}" \
  && npm install
 
-# build go-carbon w/pickle patch (experimental)
-# https://github.com/lomik/go-carbon/pull/340
-ARG gocarbon_version=0.14.0
-ARG gocarbon_repo=https://github.com/lomik/go-carbon.git
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+# build go-carbon (experimental)
+# https://github.com/go-graphite/go-carbon/pull/340
+ARG gocarbon_version=0.15.0
+ARG gocarbon_repo=https://github.com/go-graphite/go-carbon.git
 RUN git clone "${gocarbon_repo}" /usr/local/src/go-carbon \
  && cd /usr/local/src/go-carbon \
  && git checkout tags/v"${gocarbon_version}" \
- && curl https://patch-diff.githubusercontent.com/raw/lomik/go-carbon/pull/340.patch | git apply \
  && make \
  && chmod +x go-carbon && mkdir -p /opt/graphite/bin/ \
  && cp -fv go-carbon /opt/graphite/bin/go-carbon
@@ -156,14 +161,14 @@ COPY --from=build /opt /opt
 EXPOSE 80 2003-2004 2013-2014 2023-2024 8080 8125 8125/udp 8126
 VOLUME ["/opt/graphite/conf", "/opt/graphite/storage", "/opt/graphite/webapp/graphite/functions/custom", "/etc/nginx", "/opt/statsd/config", "/etc/logrotate.d", "/var/log", "/var/lib/redis"]
 
-# EÂECI config
+# ECI config
 RUN true \
  && apk add --no-cache \
       curl \
       jq
 
-COPY eci/graphite-feed.sh / 
-COPY eci/crontabs/root /etc/crontabs/root 
+COPY eci/graphite-feed.sh /
+COPY eci/crontabs/root /etc/crontabs/root
 
 STOPSIGNAL SIGHUP
 

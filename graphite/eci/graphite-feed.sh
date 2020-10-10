@@ -19,6 +19,7 @@ do
 	COUNT=$(echo $JSON_FORMATED |jq --arg COUNTRY "$country" '. | select(.country==$COUNTRY) | .count')
 	echo $COUNT
 	echo "eci.$ECI_NAME.$country $COUNT  `date +%s`" | nc ${SERVER} ${PORT}
+	echo "eci.$ECI_NAME.$country $COUNT  `date +%s`" >> /opt/graphite/storage/eci_data_backup.raw
 done
 
 

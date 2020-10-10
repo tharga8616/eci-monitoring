@@ -13,7 +13,7 @@ services:
       - grafana-conf:/usr/share/grafana/conf/
 
   graphite:
-    image: tharga8616/graphite-eci:v1.0.0 # armf build image based on graphiteapp/graphite-statsd
+    image: tharga8616/graphite-eci:v1.0.1 # armf build image based on graphiteapp/graphite-statsd
     container_name: graphite
     restart: always
     networks:
@@ -27,6 +27,8 @@ services:
       - graphite-logrotate:/etc/logrotate.d
       - graphite-logs:/var/log
       - graphite-redis:/var/lib/redis
+      - ./graphite/eci/crontabs/root:/etc/crontabs/root
+      - ./graphite/eci/graphite-feed.sh:/graphite-feed.sh 
     environment:
       - ECI_URL=https://eci.ec.europa.eu/014/public
       - ECI_NAME=unconditionalbasicincome
