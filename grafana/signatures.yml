@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1601282143006,
+  "iteration": 1604092303720,
   "links": [],
   "panels": [
     {
@@ -47,15 +47,15 @@
               },
               {
                 "color": "yellow",
-                "value": 350000
+                "value": 300000
               },
               {
                 "color": "dark-orange",
-                "value": 650000
+                "value": 600000
               },
               {
                 "color": "red",
-                "value": 800000
+                "value": 900000
               }
             ]
           },
@@ -71,6 +71,7 @@
       },
       "hideTimeOverride": false,
       "id": 4,
+      "maxDataPoints": 10000,
       "options": {
         "orientation": "auto",
         "reduceOptions": {
@@ -92,7 +93,7 @@
           "target": "sumSeries(eci.unconditionalbasicincome.*)"
         }
       ],
-      "timeFrom": "10m",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Total",
       "transformations": [
@@ -105,7 +106,17 @@
       "type": "gauge"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Bulgaria": "dark-purple",
+        "France": "dark-blue",
+        "Germany": "orange",
+        "Greece": "light-blue",
+        "Hungary": "dark-green",
+        "Italy": "yellow",
+        "Netherlands": "light-purple",
+        "Slovenia": "light-green",
+        "Spain": "red"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -314,6 +325,227 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {
+        "Bulgaria": "dark-purple",
+        "France": "dark-blue",
+        "Germany": "orange",
+        "Greece": "light-blue",
+        "Hungary": "dark-green",
+        "Italy": "yellow",
+        "Netherlands": "light-purple",
+        "Slovenia": "light-green",
+        "Spain": "red"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Graphite",
+      "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 250,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {}
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": true,
+      "targets": [
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(aliasSub(eci.increments.$Country, 'eci.increments.at', 'Austria'), 'eci.increments.be', 'Belgium'), 'eci.increments.bg', 'Bulgaria'), 'eci.increments.cy', 'Cyprus'), 'eci.increments.cz', 'Czech Republic'), 'eci.increments.de', 'Germany'), 'eci.increments.dk', 'Denmark'), 'eci.increments.ee', 'Estonia'), 'eci.increments.es', 'Spain'), 'eci.increments.fi', 'Finland'), 'eci.increments.fr', 'France'), 'eci.increments.gr', 'Greece'), 'eci.increments.hr', 'Croatia'), 'eci.increments.hu', 'Hungary'), 'eci.increments.ie', 'Ireland'), 'eci.increments.it', 'Italy'), 'eci.increments.lt', 'Lithuania'), 'eci.increments.lu', 'Luxembourg'), 'eci.increments.lv', 'Latvia'), 'eci.increments.mt', 'Malta'), 'eci.increments.nl', 'Netherlands'), 'eci.increments.pl', 'Poland'), 'eci.increments.pt', 'Portugal'), 'eci.increments.ro', 'Romania'), 'eci.increments.se', 'Sweden'), 'eci.increments.si', 'Slovenia'), 'eci.increments.sk', 'Slovakia')",
+          "textEditor": true
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Signatures per day",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "none",
+          "label": "Number of Signatures",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": 0,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "cacheTimeout": "",
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Graphite",
+      "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "hiddenSeries": false,
+      "id": 7,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 250,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxDataPoints": 10000,
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {}
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": true,
+      "targets": [
+        {
+          "refId": "A",
+          "target": "alias(sumSeries(eci.increments.*, *), 'Total')"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Total per day",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "none",
+          "label": "Number of Signatures",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": false,
@@ -407,7 +639,7 @@
     ]
   },
   "time": {
-    "from": "2020-09-24T22:00:00.000Z",
+    "from": "2020-09-24T20:00:00.000Z",
     "to": "now-1m"
   },
   "timepicker": {
@@ -427,5 +659,5 @@
   "timezone": "",
   "title": "European Citizen's Initiative for Unconditional Basic Income",
   "uid": "Zua6l34Zgz1",
-  "version": 12
+  "version": 29
 }
