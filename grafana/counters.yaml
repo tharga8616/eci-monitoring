@@ -182,12 +182,12 @@
       "targets": [
         {
           "refId": "A",
-          "target": "contador.qr-metro"
+          "target": "contador.testfb"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "QR Metro Rivas",
+      "title": "Test facebook",
       "type": "stat"
     },
     {
@@ -480,14 +480,14 @@
       "targets": [
         {
           "refId": "A",
-          "target": "contador.qr-metro"
+          "target": "contador.testfb"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "QR Metro Rivas",
+      "title": "Test facebook",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -514,119 +514,6 @@
         {
           "decimals": -1,
           "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "contador.redirect": "red",
-        "contador.redirect-increment": "red"
-      },
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "description": "From domain sign.unconditionalbasicincome.eu",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 0,
-        "y": 12
-      },
-      "hiddenSeries": false,
-      "id": 7,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxDataPoints": 10000,
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pluginVersion": "7.1.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
-      "targets": [
-        {
-          "refId": "A",
-          "target": "contador.redirect-increment"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Redirections",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": -1,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "decimals": -1,
-          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -640,7 +527,7 @@
       }
     }
   ],
-  "refresh": "5m",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -648,12 +535,12 @@
     "list": []
   },
   "time": {
-    "from": "now-2d",
+    "from": "2020-09-24T22:00:00.000Z",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Counters",
   "uid": "gZmBZ5Rgz",
-  "version": 24
+  "version": 26
 }
